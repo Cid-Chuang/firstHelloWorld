@@ -1,0 +1,84 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "e管家福利自己查開放資料集",
+    "description" : "e管家福利自己查開放資料集",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/Cid-Chuang/EMSG-Public/1.0.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  }, {
+    "url" : "https://api.msg.nat.gov.tw/emsgService/v1/dataGov",
+    "description" : "e管家開放資料集"
+  } ],
+  "paths" : {
+    "/profile" : {
+      "get" : {
+        "summary" : "福利自己查資料集",
+        "description" : "提供各機關福利資料\n",
+        "responses" : {
+          "200" : {
+            "description" : "取得全部福利資料",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/profileMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "profileMessage" : {
+        "required" : [ "內容(HTML格式)", "建立時間", "標題" ],
+        "type" : "object",
+        "properties" : {
+          "標題" : {
+            "type" : "string"
+          },
+          "簡述說明" : {
+            "type" : "string"
+          },
+          "內容" : {
+            "type" : "string"
+          },
+          "發布日期" : {
+            "type" : "string",
+            "example" : "2010-01-01"
+          },
+          "建立時間" : {
+            "type" : "string",
+            "example" : "2010-01-01"
+          },
+          "來源名稱" : {
+            "type" : "string"
+          },
+          "來源網址" : {
+            "type" : "string",
+            "example" : "https://example.com"
+          },
+          "圖檔網址" : {
+            "type" : "string",
+            "example" : "f03/201607/146951570522620/thumb1.jpg"
+          },
+          "線上申請網址" : {
+            "type" : "string",
+            "example" : "https://example.com/page1.html"
+          }
+        }
+      }
+    }
+  }
+}
